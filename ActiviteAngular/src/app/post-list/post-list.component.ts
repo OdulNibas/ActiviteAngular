@@ -6,7 +6,14 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
-  lastDate = new Date();
+  lastDate = new Promise((resolve, reject) => {
+    const date = new Date();
+    setTimeout(
+      () => {
+        resolve(date);
+      }, 100
+    );
+  });
 
    @Input() postTitle : string;
    @Input() postContent : string;
